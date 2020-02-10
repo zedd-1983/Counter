@@ -12,4 +12,14 @@ public class Counter {
     {
         return this.count;
     }
+
+    public void incrementCount()
+    {
+        this.count++;
+    }
+
+    public void decrementCount()
+    {
+        this.count--;
+    }
 }

@@ -23,4 +23,21 @@ public class CounterTest {
     {
         assertEquals(0, myCounter.getCount());
     }
+
+    @DisplayName("Increment test")
+    @Test
+    void testIncrement()
+    {
+        myCounter.incrementCount();
+        assertEquals(1, myCounter.getCount());
+    }
+
+    @DisplayName("Decrement test")
+    @Test
+    void testDecrement()
+    {
+        myCounter.decrementCount();
+        assertEquals(-1, myCounter.getCount());
+    }
+
 }
