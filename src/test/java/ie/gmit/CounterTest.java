@@ -4,6 +4,7 @@ package ie.gmit;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CounterTest {
 
@@ -39,5 +40,13 @@ public class CounterTest {
         myCounter.decrementCount();
         assertEquals(-1, myCounter.getCount());
     }
+
+    @DisplayName("Parametric constructor test")
+    @Test
+    void testParametricConstructor()
+    {
+        assertThrows(IllegalArgumentException.class, ()-> {new Counter(-1);});
+    }
+
 
 }
