@@ -10,12 +10,24 @@ public class CounterTest {
 
     private Counter myCounter;
 
+    @BeforeAll
+    public static void init()
+    {
+        System.out.println("Starting test");
+    }
 
     @BeforeEach
-    void init(TestInfo testInfo, TestReporter testReporter)
+    public void testStart(TestInfo testInfo, TestReporter testReporter)
     {
         testReporter.publishEntry("Testing" + " " + testInfo.getDisplayName());
         myCounter = new Counter();
+    }
+
+    @AfterAll
+    public static void testEnd(TestInfo testInfo, TestReporter testReporter)
+    {
+        testReporter.publishEntry("\033[34m " +  testInfo.getDisplayName() + " finished\033[0m");
+        //System.out.println("Testing complete");
     }
 
     @DisplayName("Constructor test")
